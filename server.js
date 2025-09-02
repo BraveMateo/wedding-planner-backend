@@ -29,8 +29,8 @@ app.get("/health", (req, res) => res.json({ status: "OK" }));
 
 // Start server
 const PORT = process.env.PORT || 5000;
-mongoose;
+
 mongoose
-  .connect(`${process.env.MONGO_URI}${process.env.MONGO_DB}`)
-  .then(() => app.listen(PORT, () => console.log(`Backend running on ${PORT}`)))
+  .connect(process.env.MONGO_URI)
+  .then(() => app.listen(PORT, () => console.log(`✅ Backend running on port ${PORT}`)))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
